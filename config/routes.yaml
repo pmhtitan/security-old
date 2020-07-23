@@ -5,3 +5,7 @@
 registro:
     path: /register
     controller: App\Controller\UserController::register 
+
+bienvenida:
+  path: /welcome-landing
+  controller: App\Controller\UserController::bienvenida
