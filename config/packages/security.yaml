@@ -3,10 +3,15 @@ security:
         App\Entity\Users:
             algorithm: bcrypt
             cost: 4
-            
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
+        proveedor:
+            entity:
+                class: App\Entity\Users
+                property: email
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -15,6 +20,16 @@ security:
             anonymous: true
             lazy: true
             provider: users_in_memory
+            form_login:
+                login_path: login
+                check_path: login
+                default_target_path: bienvenida
+                provider: proveedor
+
+            logout: 
+                path: /logout
+                target: /login
+            
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

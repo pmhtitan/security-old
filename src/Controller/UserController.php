@@ -9,6 +9,7 @@ use App\Form\RegisterType;
 use DateTime;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
@@ -63,5 +64,23 @@ class UserController extends AbstractController
         return $this->render('user/welcomeLanding.html.twig', [
             'email' => $email,
         ]);
+    }
+
+    public function login(AuthenticationUtils $authenticationUtils){
+        
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('user/login.html.twig',[
+            'error' => $error,
+            'last_username' => $lastUsername,
+        ]);
+    }
+    
+    /**
+     * @Route("/logout", name="app_logout", methods={"GET"})
+     */
+    public function logout(){
+
     }
 }

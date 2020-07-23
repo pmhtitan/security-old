@@ -6,7 +6,7 @@
 
 
 <div class="container">
-    <h1 class="text-center">Bienvenido, {{ email }} </h1>
+    <h1 class="text-center">Bienvenido {% if app.user.email is defined %} , {{ app.user.email }} {% endif %} </h1>
 
    <h2 class="text-center">Esperemos que disfrutes de tu estancia en 'ElAmigos'</h2>
 </div>

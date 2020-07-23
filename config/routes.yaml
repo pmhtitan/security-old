@@ -9,3 +9,7 @@ registro:
 bienvenida:
   path: /welcome-landing
   controller: App\Controller\UserController::bienvenida
+
+login:
+  path: /login
+  controller: App\Controller\UserController::login
