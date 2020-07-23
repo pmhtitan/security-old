@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro{% endblock %}
+
+{% form_theme formRegister 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+<div class="example-wrapper">
+    <h1>Página de registro</h1>
+
+    This amazing message is coming from:
+    <ul>
+        <li>Registro aqui</li>        
+    </ul>
+    {{ form_start(formRegister) }}
+    {{ form_widget(formRegister) }}
+    {{ form_end(formRegister) }}
+</div>
+{% endblock %}
